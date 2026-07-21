@@ -1,0 +1,57 @@
+// api/odds-proxy.js
+export default async function handler(req, res) {
+  // CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  if (req.method !== 'GET') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  const apiKey = process.env.ODDS_API_KEY;
+  
+  if (!apiKey) {
+    return res.status(500).json({ error: 'API key not configured' });
+  }
+
+  const { sport, regions, markets, dateFormat } = req.query;
+
+  if (!sport) {
+    return res.status(400).json({ error: 'Sport parameter required' });
+  }
+
+  try {
+    const params = new URLSearchParams({
+      apiKey,
+      sport: sport || 'tennis_atp',
+      regions: regions || 'us',
+      markets: markets || 'h2h',
+      dateFormat: dateFormat || 'iso'
+    });
+
+    const apiUrl = `https://api.the-odds-api.com/v4/sports/${sport}/events?${params}`;
+    
+    const response = await fetch(apiUrl);
+    
+    if (!response.ok) {
+      if (response.status === 401) {
+        return res.status(401).json({ error: 'Invalid API key' });
+      }
+      if (response.status === 429) {
+        return res.status(429).json({ error: 'Rate limit reached' });
+      }
+      return res.status(response.status).json({ error: 'API error' });
+    }
+
+    const data = await response.json();
+    
+    return res.status(200).json(data);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+}
