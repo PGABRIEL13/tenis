@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TENNIS SIGNALS — Gestão e Análise Manual</title>
+    <meta name="robots" content="noindex, nofollow">
+    <title>TENNIS SIGNALS</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js CDN -->
