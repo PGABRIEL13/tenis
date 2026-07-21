@@ -40,6 +40,13 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #999;
         }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
     </style>
 </head>
 <body class="bg-white text-zinc-900 font-sans antialiased min-h-screen flex flex-col md:flex-row">
@@ -66,7 +73,7 @@
 
         <nav class="flex-1 px-3 py-6 space-y-1">
             <button onclick="navigate('dashboard')" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 text-sm font-medium rounded text-zinc-300 hover:bg-zinc-900 hover:text-white transition" data-page="dashboard">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm0 0h16m0 0V6m0 16H0"></path></svg>
                 <span>Dashboard</span>
             </button>
             <button onclick="navigate('signals')" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 text-sm font-medium rounded text-zinc-300 hover:bg-zinc-900 hover:text-white transition" data-page="signals">
@@ -74,11 +81,11 @@
                 <span>Signals</span>
             </button>
             <button onclick="navigate('botd')" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 text-sm font-medium rounded text-zinc-300 hover:bg-zinc-900 hover:text-white transition" data-page="botd">
-                <svg class="w-4 h-4 text-tennis-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                <svg class="w-4 h-4 text-tennis-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 9h-5.364L9.7 2.143 9 0l-.7 2.143L3.636 9H0l5.364 5.857L3.078 21H8.44l1.261 3.857L11 21h5.364l-2.286-6.857L16 12h5l-5.364-2.143L13.45 3z"></path></svg>
                 <span>Bet of the Day</span>
             </button>
             <button onclick="navigate('botw')" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 text-sm font-medium rounded text-zinc-300 hover:bg-zinc-900 hover:text-white transition" data-page="botw">
-                <svg class="w-4 h-4 text-tennis-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                <svg class="w-4 h-4 text-tennis-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                 <span>Bet of the Week</span>
             </button>
             <button onclick="navigate('results')" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 text-sm font-medium rounded text-zinc-300 hover:bg-zinc-900 hover:text-white transition" data-page="results">
@@ -94,7 +101,7 @@
                 <span>Statistics</span>
             </button>
             <button onclick="navigate('bankroll')" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 text-sm font-medium rounded text-zinc-300 hover:bg-zinc-900 hover:text-white transition" data-page="bankroll">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <span>Bankroll</span>
             </button>
             <button onclick="navigate('settings')" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 text-sm font-medium rounded text-zinc-300 hover:bg-zinc-900 hover:text-white transition" data-page="settings">
@@ -228,12 +235,12 @@
                 <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
                     <div class="flex space-x-2">
                         <button onclick="filterHistory('All')" class="history-filter-btn px-3 py-1.5 text-xs font-semibold rounded border border-zinc-300 bg-black text-white" data-filter="All">Todos</button>
-                        <button onclick="filterHistory('Green')" class="history-filter-btn px-3 py-1.5 text-xs font-semibold rounded border border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-50" data-filter="Green">Green</button>
-                        <button onclick="filterHistory('Red')" class="history-filter-btn px-3 py-1.5 text-xs font-semibold rounded border border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-50" data-filter="Red">Red</button>
-                        <button onclick="filterHistory('Void')" class="history-filter-btn px-3 py-1.5 text-xs font-semibold rounded border border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-50" data-filter="Void">Void</button>
+                        <button onclick="filterHistory('Green')" class="history-filter-btn px-3 py-1.5 text-xs font-semibold rounded border border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-50" data-filter="Green">Greens</button>
+                        <button onclick="filterHistory('Red')" class="history-filter-btn px-3 py-1.5 text-xs font-semibold rounded border border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-50" data-filter="Red">Reds</button>
+                        <button onclick="filterHistory('Void')" class="history-filter-btn px-3 py-1.5 text-xs font-semibold rounded border border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-50" data-filter="Void">Voids</button>
                         <button onclick="filterHistory('Pending')" class="history-filter-btn px-3 py-1.5 text-xs font-semibold rounded border border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-50" data-filter="Pending">Pending</button>
                     </div>
-                    <input type="text" id="history-search" oninput="renderHistory()" placeholder="Pesquisar jogador ou torneio..." class="px-3 py-1.5 text-sm border border-zinc-300 rounded w-full sm:w-64 focus:outline-none focus:border-black">
+                    <input type="text" id="history-search" oninput="renderHistory()" placeholder="Pesquisar jogador ou torneio..." class="px-3 py-1.5 text-sm border border-zinc-300 rounded w-full sm:w-48 focus:outline-none focus:border-black">
                 </div>
 
                 <div class="overflow-x-auto border border-zinc-200 rounded">
@@ -480,7 +487,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div>
                         <label class="block text-xs font-semibold text-zinc-600 mb-1">Odds *</label>
-                        <input type="number" step="0.01" min="1.01" id="form-odds" required class="w-full px-3 py-1.5 border border-zinc-300 rounded text-sm focus:outline-none focus:border-black">
+                        <input type="number" step="0.01" min="1.01" id="form-odds" required oninput="calculateEdgeFromOdds()" class="w-full px-3 py-1.5 border border-zinc-300 rounded text-sm focus:outline-none focus:border-black">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-zinc-600 mb-1">Stake (€) *</label>
@@ -493,6 +500,20 @@
                     <div>
                         <label class="block text-xs font-semibold text-zinc-600 mb-1">Edge / Valor</label>
                         <input type="text" id="form-edge" placeholder="Ex: +5.2%" class="w-full px-3 py-1.5 border border-zinc-300 rounded text-sm focus:outline-none focus:border-black">
+                    </div>
+                </div>
+
+                <!-- Implied Probability Info -->
+                <div class="bg-zinc-50 p-3 rounded border border-zinc-200">
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <p class="text-xs text-zinc-600 font-semibold">Implied Probability</p>
+                            <p class="text-lg font-bold text-zinc-900" id="implied-prob">-</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-zinc-600 font-semibold">Sua Probabilidade</p>
+                            <input type="number" step="0.1" min="0" max="100" id="form-estimated-prob" oninput="calculateEdge()" placeholder="Sua previsão %" class="w-full px-3 py-1.5 border border-zinc-300 rounded text-sm focus:outline-none focus:border-black">
+                        </div>
                     </div>
                 </div>
 
@@ -528,6 +549,9 @@
             </form>
         </div>
     </div>
+
+    <!-- ODDS INTEGRATION SCRIPT -->
+    <script src="odds-integration.js"></script>
 
     <!-- LOGICAL JAVASCRIPT -->
     <script>
@@ -679,6 +703,7 @@
             const titles = {
                 dashboard: 'Dashboard',
                 signals: 'Gestão de Sinais',
+                odds: 'Tennis Odds',
                 botd: 'Bet of the Day',
                 botw: 'Bet of the Week',
                 results: 'Resultados',
@@ -743,6 +768,33 @@
             if (s.status === 'Green') return stake * (odds - 1);
             if (s.status === 'Red') return -stake;
             return 0;
+        }
+
+        function calculateEdgeFromOdds() {
+            const odds = parseFloat(document.getElementById('form-odds').value) || 0;
+            if (odds <= 1) {
+                document.getElementById('implied-prob').innerText = '-';
+                return;
+            }
+            
+            const impliedProb = (1 / odds * 100).toFixed(2);
+            document.getElementById('implied-prob').innerText = impliedProb + '%';
+            calculateEdge();
+        }
+
+        function calculateEdge() {
+            const impliedProbStr = document.getElementById('implied-prob').innerText;
+            const impliedProb = parseFloat(impliedProbStr);
+            const estimatedProb = parseFloat(document.getElementById('form-estimated-prob').value) || 0;
+
+            if (!impliedProb || estimatedProb === 0) {
+                document.getElementById('form-edge').value = '';
+                return;
+            }
+
+            const edge = estimatedProb - impliedProb;
+            const edgeText = edge > 0 ? `+${edge.toFixed(2)}%` : `${edge.toFixed(2)}%`;
+            document.getElementById('form-edge').value = edgeText;
         }
 
         function renderDashboard() {
@@ -1002,13 +1054,10 @@
                 filtered = filtered.filter(s => s.status === currentFilterHistory);
             }
 
-            if (searchTerm) {
-                filtered = filtered.filter(s => 
-                    (s.player1 && s.player1.toLowerCase().includes(searchTerm)) ||
-                    (s.player2 && s.player2.toLowerCase().includes(searchTerm)) ||
-                    (s.tournament && s.tournament.toLowerCase().includes(searchTerm))
-                );
-            }
+            filtered = filtered.filter(s => {
+                const searchStr = `${s.player1} ${s.player2} ${s.tournament}`.toLowerCase();
+                return searchStr.includes(searchTerm);
+            });
 
             const tbody = document.getElementById('history-table-body');
             if (filtered.length === 0) {
@@ -1022,14 +1071,14 @@
                     <tr class="hover:bg-zinc-50">
                         <td class="p-3 text-xs text-zinc-600">${s.date || 'Not provided'}</td>
                         <td class="p-3 font-medium">${s.tournament || 'Not provided'}</td>
-                        <td class="p-3 text-xs text-zinc-500">${s.surface || 'Not provided'}</td>
+                        <td class="p-3 text-xs">${s.surface || 'Not provided'}</td>
                         <td class="p-3 font-semibold">${s.player1 || 'Not provided'} vs ${s.player2 || 'Not provided'}</td>
-                        <td class="p-3 font-medium">${s.selection || 'Not provided'}</td>
-                        <td class="p-3 font-mono font-bold">@${s.odds}</td>
+                        <td class="p-3 font-bold">${s.selection || 'Not provided'}</td>
+                        <td class="p-3 font-mono">@${s.odds}</td>
                         <td class="p-3 font-mono">€${s.stake}</td>
                         <td class="p-3">${renderStatusBadge(s.status)}</td>
                         <td class="p-3 font-mono font-bold text-right ${profit >= 0 ? 'text-emerald-600' : 'text-rose-600'}">
-                            ${s.status === 'Pending' ? '—' : `${profit >= 0 ? '+' : ''}€${profit.toFixed(2)}`}
+                            ${profit >= 0 ? '+' : ''}€${profit.toFixed(2)}
                         </td>
                     </tr>
                 `;
@@ -1037,128 +1086,141 @@
         }
 
         function renderStatistics() {
-            renderGroupedStats('market', 'stats-market-body');
-            renderGroupedStats('surface', 'stats-surface-body');
-            renderGroupedStats('category', 'stats-category-body');
-        }
-
-        function renderGroupedStats(field, targetElemId) {
-            const groups = {};
+            const marketStats = {};
+            const surfaceStats = {};
+            const categoryStats = {};
 
             signals.forEach(s => {
-                const key = s[field] || 'Not provided';
-                if (!groups[key]) groups[key] = [];
-                groups[key].push(s);
+                const market = s.market || 'Unknown';
+                const surface = s.surface || 'Unknown';
+                const category = s.category || 'Unknown';
+
+                [marketStats, surfaceStats, categoryStats].forEach((stats, idx) => {
+                    const key = [market, surface, category][idx];
+                    if (!stats[key]) {
+                        stats[key] = { total: 0, greens: 0, reds: 0, voids: 0, profit: 0, stakeSettled: 0 };
+                    }
+
+                    stats[key].total++;
+                    if (s.status === 'Green') {
+                        stats[key].greens++;
+                        stats[key].profit += parseFloat(s.stake) * (parseFloat(s.odds) - 1);
+                        stats[key].stakeSettled += parseFloat(s.stake);
+                    } else if (s.status === 'Red') {
+                        stats[key].reds++;
+                        stats[key].profit -= parseFloat(s.stake);
+                        stats[key].stakeSettled += parseFloat(s.stake);
+                    } else if (s.status === 'Void') {
+                        stats[key].voids++;
+                        stats[key].stakeSettled += parseFloat(s.stake);
+                    }
+                });
             });
 
-            const tbody = document.getElementById(targetElemId);
-            const keys = Object.keys(groups);
+            const renderStatsTable = (stats) => {
+                return Object.entries(stats).map(([key, data]) => {
+                    const decidedBets = data.greens + data.reds;
+                    const winRate = decidedBets > 0 ? ((data.greens / decidedBets) * 100).toFixed(1) : '0.0';
+                    const roi = data.stakeSettled > 0 ? ((data.profit / data.stakeSettled) * 100).toFixed(1) : '0.0';
 
-            if (keys.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" class="p-4 text-center text-zinc-400">Not provided</td></tr>';
-                return;
-            }
+                    return `
+                        <tr class="hover:bg-zinc-50">
+                            <td class="p-3 font-medium">${key}</td>
+                            <td class="p-3 text-center">${data.total}</td>
+                            <td class="p-3 text-center text-emerald-600 font-semibold">${data.greens}</td>
+                            <td class="p-3 text-center text-rose-600 font-semibold">${data.reds}</td>
+                            <td class="p-3 text-center text-zinc-600">${data.voids}</td>
+                            <td class="p-3 text-center font-mono">${winRate}%</td>
+                            <td class="p-3 text-center font-mono ${roi >= 0 ? 'text-emerald-600' : 'text-rose-600'}">${roi}%</td>
+                            <td class="p-3 text-right font-mono font-bold ${data.profit >= 0 ? 'text-emerald-600' : 'text-rose-600'}">€${data.profit.toFixed(2)}</td>
+                        </tr>
+                    `;
+                }).join('');
+            };
 
-            tbody.innerHTML = keys.map(key => {
-                const groupSignals = groups[key];
-                const m = calculateMetrics(groupSignals);
-                return `
-                    <tr class="hover:bg-zinc-50">
-                        <td class="p-3 font-bold text-zinc-900">${key}</td>
-                        <td class="p-3 font-mono">${m.totalSignals}</td>
-                        <td class="p-3 text-emerald-600 font-semibold">${m.greens}</td>
-                        <td class="p-3 text-rose-600 font-semibold">${m.reds}</td>
-                        <td class="p-3 text-zinc-500 font-semibold">${m.voids}</td>
-                        <td class="p-3 font-bold">${m.winRate}%</td>
-                        <td class="p-3 font-bold ${m.roi >= 0 ? 'text-emerald-600' : 'text-rose-600'}">${m.roi}%</td>
-                        <td class="p-3 font-mono font-bold text-right ${m.totalProfit >= 0 ? 'text-emerald-600' : 'text-rose-600'}">
-                            ${m.totalProfit >= 0 ? '+' : ''}€${m.totalProfit.toFixed(2)}
-                        </td>
-                    </tr>
-                `;
-            }).join('');
+            document.getElementById('stats-market-body').innerHTML = renderStatsTable(marketStats);
+            document.getElementById('stats-surface-body').innerHTML = renderStatsTable(surfaceStats);
+            document.getElementById('stats-category-body').innerHTML = renderStatsTable(categoryStats);
         }
 
         function renderBankroll() {
             const m = calculateMetrics();
 
             document.getElementById('bankroll-kpi-cards').innerHTML = `
-                <div class="p-4 border border-zinc-200 rounded bg-white">
-                    <p class="text-xs font-semibold text-zinc-500 uppercase">Initial Bankroll</p>
-                    <p class="text-xl font-black text-zinc-900 mt-1">€${parseFloat(config.initialBankroll).toFixed(2)}</p>
+                <div class="p-4 border border-zinc-200 rounded">
+                    <p class="text-xs font-semibold text-zinc-500 uppercase">Banca Atual</p>
+                    <p class="text-3xl font-black text-zinc-900 mt-2">€${m.currentBankroll.toFixed(2)}</p>
                 </div>
-                <div class="p-4 border border-zinc-200 rounded bg-white">
-                    <p class="text-xs font-semibold text-zinc-500 uppercase">Total Profit</p>
-                    <p class="text-xl font-black ${m.totalProfit >= 0 ? 'text-emerald-600' : 'text-rose-600'} mt-1">
+                <div class="p-4 border border-zinc-200 rounded">
+                    <p class="text-xs font-semibold text-zinc-500 uppercase">Variação Total</p>
+                    <p class="text-3xl font-black ${m.totalProfit >= 0 ? 'text-emerald-600' : 'text-rose-600'} mt-2">
                         ${m.totalProfit >= 0 ? '+' : ''}€${m.totalProfit.toFixed(2)}
                     </p>
                 </div>
-                <div class="p-4 border border-zinc-200 rounded bg-white">
+                <div class="p-4 border border-zinc-200 rounded">
                     <p class="text-xs font-semibold text-zinc-500 uppercase">ROI</p>
-                    <p class="text-xl font-black ${m.roi >= 0 ? 'text-emerald-600' : 'text-rose-600'} mt-1">${m.roi}%</p>
+                    <p class="text-3xl font-black ${m.roi >= 0 ? 'text-emerald-600' : 'text-rose-600'} mt-2">${m.roi}%</p>
                 </div>
-                <div class="p-4 border border-zinc-200 rounded bg-black text-white">
-                    <p class="text-xs font-semibold text-zinc-400 uppercase">Current Bankroll</p>
-                    <p class="text-xl font-black text-tennis-green mt-1">€${m.currentBankroll.toFixed(2)}</p>
+                <div class="p-4 border border-zinc-200 rounded">
+                    <p class="text-xs font-semibold text-zinc-500 uppercase">Win Rate</p>
+                    <p class="text-3xl font-black text-zinc-900 mt-2">${m.winRate}%</p>
                 </div>
             `;
 
-            renderChart();
+            renderBankrollChart();
         }
 
-        function saveBankrollSettings(e) {
-            e.preventDefault();
-            config.initialBankroll = parseFloat(document.getElementById('input-initial-bankroll').value) || 0;
-            config.defaultStake = parseFloat(document.getElementById('input-default-stake').value) || 0;
-            saveConfig();
-            renderBankroll();
-        }
+        function renderBankrollChart() {
+            const chartElement = document.getElementById('bankrollChart');
+            if (!chartElement) return;
 
-        function renderChart() {
-            const ctx = document.getElementById('bankrollChart').getContext('2d');
-            
-            const settled = [...signals]
-                .filter(s => s.status !== 'Pending')
-                .sort((a, b) => new Date(a.date) - new Date(b.date));
+            const ctx = chartElement.getContext('2d');
+            if (chartInstance) chartInstance.destroy();
 
-            let current = parseFloat(config.initialBankroll);
-            const labels = ['Início', ...settled.map((s, i) => s.date || `#${i+1}`)];
-            const dataPoints = [current];
+            let runningBankroll = parseFloat(config.initialBankroll);
+            const labels = ['Initial'];
+            const data = [runningBankroll];
 
-            settled.forEach(s => {
-                current += calculateSignalProfit(s);
-                dataPoints.push(current);
+            signals.forEach((s, idx) => {
+                if (s.status !== 'Pending') {
+                    const profit = calculateSignalProfit(s);
+                    runningBankroll += profit;
+                    labels.push(`Sig ${idx + 1}`);
+                    data.push(runningBankroll);
+                }
             });
-
-            if (chartInstance) {
-                chartInstance.destroy();
-            }
 
             chartInstance = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: 'Bankroll (€)',
-                        data: dataPoints,
-                        borderColor: '#000000',
-                        backgroundColor: '#CCFF00',
-                        borderWidth: 2,
-                        tension: 0.1,
-                        pointRadius: 4,
+                        label: 'Bankroll Evolution (€)',
+                        data: data,
+                        borderColor: '#CCFF00',
+                        backgroundColor: 'rgba(204, 255, 0, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
                         pointBackgroundColor: '#CCFF00',
-                        pointBorderColor: '#000000'
+                        pointBorderColor: '#111111',
+                        pointRadius: 5,
+                        pointHoverRadius: 7
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
+                    plugins: {
+                        legend: { display: false }
+                    },
                     scales: {
-                        x: { grid: { display: false } },
                         y: {
-                            grid: { color: '#f0f0f0' },
-                            ticks: { callback: function(val) { return '€' + val; } }
+                            beginAtZero: false,
+                            ticks: { color: '#666' }
+                        },
+                        x: {
+                            ticks: { color: '#666' }
                         }
                     }
                 }
@@ -1166,128 +1228,125 @@
         }
 
         function renderStatusBadge(status) {
-            if (status === 'Green') return '<span class="px-2 py-0.5 text-xs font-bold rounded bg-emerald-100 text-emerald-800 border border-emerald-300">GREEN</span>';
-            if (status === 'Red') return '<span class="px-2 py-0.5 text-xs font-bold rounded bg-rose-100 text-rose-800 border border-rose-300">RED</span>';
-            if (status === 'Void') return '<span class="px-2 py-0.5 text-xs font-bold rounded bg-zinc-100 text-zinc-700 border border-zinc-300">VOID</span>';
-            return '<span class="px-2 py-0.5 text-xs font-bold rounded bg-amber-100 text-amber-800 border border-amber-300">PENDING</span>';
+            const badges = {
+                'Green': '<span class="px-2 py-1 text-xs font-bold rounded bg-emerald-100 text-emerald-800">Green</span>',
+                'Red': '<span class="px-2 py-1 text-xs font-bold rounded bg-rose-100 text-rose-800">Red</span>',
+                'Void': '<span class="px-2 py-1 text-xs font-bold rounded bg-zinc-100 text-zinc-800">Void</span>',
+                'Pending': '<span class="px-2 py-1 text-xs font-bold rounded bg-yellow-100 text-yellow-800">Pending</span>'
+            };
+            return badges[status] || badges['Pending'];
         }
 
-        function openModal(id = null) {
-            const modal = document.getElementById('signal-modal');
-            const form = document.getElementById('signal-form');
-            form.reset();
-
-            if (id) {
-                const signal = signals.find(s => s.id === id);
+        function openModal(signalId = null) {
+            if (signalId) {
+                const signal = signals.find(s => s.id === signalId);
                 if (signal) {
-                    document.getElementById('modal-title').innerText = 'Editar Sinal';
                     document.getElementById('signal-id').value = signal.id;
-                    document.getElementById('form-tournament').value = signal.tournament === 'Not provided' ? '' : (signal.tournament || '');
-                    document.getElementById('form-category').value = signal.category || 'ATP';
-                    document.getElementById('form-round').value = signal.round === 'Not provided' ? '' : (signal.round || '');
-                    document.getElementById('form-player1').value = signal.player1 === 'Not provided' ? '' : (signal.player1 || '');
-                    document.getElementById('form-player2').value = signal.player2 === 'Not provided' ? '' : (signal.player2 || '');
-                    document.getElementById('form-date').value = signal.date === 'Not provided' ? '' : (signal.date || '');
+                    document.getElementById('form-tournament').value = signal.tournament;
+                    document.getElementById('form-category').value = signal.category;
+                    document.getElementById('form-round').value = signal.round || '';
+                    document.getElementById('form-player1').value = signal.player1;
+                    document.getElementById('form-player2').value = signal.player2;
+                    document.getElementById('form-date').value = signal.date;
                     document.getElementById('form-time').value = signal.time || '';
-                    document.getElementById('form-surface').value = signal.surface || 'Hard';
-                    document.getElementById('form-market').value = signal.market === 'Not provided' ? '' : (signal.market || '');
-                    document.getElementById('form-selection').value = signal.selection === 'Not provided' ? '' : (signal.selection || '');
-                    document.getElementById('form-odds').value = signal.odds || '';
-                    document.getElementById('form-stake').value = signal.stake || config.defaultStake;
-                    document.getElementById('form-confidence').value = signal.confidence === 'Not provided' ? '' : (signal.confidence || '');
-                    document.getElementById('form-edge').value = signal.edge === 'Not provided' ? '' : (signal.edge || '');
-                    document.getElementById('form-type').value = signal.type || 'Normal';
-                    document.getElementById('form-status').value = signal.status || 'Pending';
-                    document.getElementById('form-analysis').value = signal.analysis === 'Not provided' ? '' : (signal.analysis || '');
+                    document.getElementById('form-surface').value = signal.surface;
+                    document.getElementById('form-market').value = signal.market;
+                    document.getElementById('form-selection').value = signal.selection;
+                    document.getElementById('form-odds').value = signal.odds;
+                    document.getElementById('form-stake').value = signal.stake;
+                    document.getElementById('form-confidence').value = signal.confidence || '';
+                    document.getElementById('form-edge').value = signal.edge || '';
+                    document.getElementById('form-type').value = signal.type;
+                    document.getElementById('form-status').value = signal.status;
+                    document.getElementById('form-analysis').value = signal.analysis || '';
+                    document.getElementById('form-estimated-prob').value = '';
+                    document.getElementById('modal-title').innerText = 'Editar Sinal';
+                    calculateEdgeFromOdds();
                 }
             } else {
-                document.getElementById('modal-title').innerText = 'Novo Sinal';
+                document.getElementById('signal-form').reset();
                 document.getElementById('signal-id').value = '';
                 document.getElementById('form-stake').value = config.defaultStake;
-                document.getElementById('form-date').value = new Date().toISOString().split('T')[0];
+                document.getElementById('form-estimated-prob').value = '';
+                document.getElementById('implied-prob').innerText = '-';
+                document.getElementById('form-edge').value = '';
+                document.getElementById('modal-title').innerText = 'Novo Sinal';
             }
 
-            modal.classList.remove('hidden');
+            document.getElementById('signal-modal').classList.remove('hidden');
         }
 
         function closeModal() {
             document.getElementById('signal-modal').classList.add('hidden');
         }
 
-        function handleSignalSubmit(e) {
-            e.preventDefault();
+        function handleSignalSubmit(event) {
+            event.preventDefault();
 
-            const id = document.getElementById('signal-id').value;
+            const signalId = document.getElementById('signal-id').value;
             const newSignal = {
-                id: id || 'sig_' + Date.now(),
-                tournament: document.getElementById('form-tournament').value.trim() || 'Not provided',
-                category: document.getElementById('form-category').value || 'Not provided',
-                round: document.getElementById('form-round').value.trim() || 'Not provided',
-                player1: document.getElementById('form-player1').value.trim() || 'Not provided',
-                player2: document.getElementById('form-player2').value.trim() || 'Not provided',
-                date: document.getElementById('form-date').value || 'Not provided',
-                time: document.getElementById('form-time').value || '',
-                surface: document.getElementById('form-surface').value || 'Not provided',
-                market: document.getElementById('form-market').value.trim() || 'Not provided',
-                selection: document.getElementById('form-selection').value.trim() || 'Not provided',
-                odds: parseFloat(document.getElementById('form-odds').value) || 1.0,
-                stake: parseFloat(document.getElementById('form-stake').value) || 0,
-                confidence: document.getElementById('form-confidence').value.trim() || 'Not provided',
-                edge: document.getElementById('form-edge').value.trim() || 'Not provided',
+                id: signalId || 'sig_' + Date.now(),
+                tournament: document.getElementById('form-tournament').value,
+                category: document.getElementById('form-category').value,
+                round: document.getElementById('form-round').value,
+                player1: document.getElementById('form-player1').value,
+                player2: document.getElementById('form-player2').value,
+                date: document.getElementById('form-date').value,
+                time: document.getElementById('form-time').value,
+                surface: document.getElementById('form-surface').value,
+                market: document.getElementById('form-market').value,
+                selection: document.getElementById('form-selection').value,
+                odds: parseFloat(document.getElementById('form-odds').value),
+                stake: parseFloat(document.getElementById('form-stake').value),
+                confidence: document.getElementById('form-confidence').value,
+                edge: document.getElementById('form-edge').value,
                 type: document.getElementById('form-type').value,
                 status: document.getElementById('form-status').value,
-                analysis: document.getElementById('form-analysis').value.trim() || 'Not provided'
+                analysis: document.getElementById('form-analysis').value
             };
 
-            if (newSignal.type === 'Bet of the Day') {
-                signals.forEach(s => { if (s.id !== newSignal.id && s.type === 'Bet of the Day') s.type = 'Normal'; });
-            }
-            if (newSignal.type === 'Bet of the Week') {
-                signals.forEach(s => { if (s.id !== newSignal.id && s.type === 'Bet of the Week') s.type = 'Normal'; });
-            }
-
-            if (id) {
-                const index = signals.findIndex(s => s.id === id);
-                if (index !== -1) signals[index] = newSignal;
+            if (signalId) {
+                const idx = signals.findIndex(s => s.id === signalId);
+                if (idx >= 0) signals[idx] = newSignal;
             } else {
                 signals.push(newSignal);
             }
 
             saveSignals();
             closeModal();
-
-            renderDashboard();
-            renderSignals();
-            renderBOTD();
-            renderBOTW();
-            renderResults();
-            renderHistory();
-            renderStatistics();
-            renderBankroll();
+            navigate('dashboard');
         }
 
-        function deleteSignal(id) {
-            if (confirm('Eliminar este sinal?')) {
-                signals = signals.filter(s => s.id !== id);
+        function deleteSignal(signalId) {
+            if (confirm('Tem a certeza que deseja eliminar este sinal?')) {
+                signals = signals.filter(s => s.id !== signalId);
                 saveSignals();
                 renderSignals();
-                renderDashboard();
             }
         }
 
+        function saveBankrollSettings(event) {
+            event.preventDefault();
+            config.initialBankroll = parseFloat(document.getElementById('input-initial-bankroll').value);
+            config.defaultStake = parseFloat(document.getElementById('input-default-stake').value);
+            saveConfig();
+            renderBankroll();
+            alert('Parâmetros salvos com sucesso!');
+        }
+
         function exportData() {
-            const payload = {
+            const data = {
                 signals: signals,
                 config: config,
-                exportedAt: new Date().toISOString()
+                exportDate: new Date().toISOString()
             };
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(payload, null, 2));
-            const downloadAnchor = document.createElement('a');
-            downloadAnchor.setAttribute("href", dataStr);
-            downloadAnchor.setAttribute("download", `tennis_signals_export.json`);
-            document.body.appendChild(downloadAnchor);
-            downloadAnchor.click();
-            downloadAnchor.remove();
+            const dataStr = JSON.stringify(data, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `tennis-signals-${new Date().getTime()}.json`;
+            link.click();
         }
 
         function importData(event) {
@@ -1295,30 +1354,34 @@
             if (!file) return;
 
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = (e) => {
                 try {
-                    const parsed = JSON.parse(e.target.result);
-                    if (parsed && parsed.signals && parsed.config) {
-                        signals = parsed.signals;
-                        config = parsed.config;
+                    const imported = JSON.parse(e.target.result);
+                    if (imported.signals && imported.config) {
+                        signals = imported.signals;
+                        config = imported.config;
                         saveSignals();
                         saveConfig();
-                        location.reload();
-                    } else {
-                        alert('Ficheiro JSON inválido.');
+                        loadData();
+                        navigate('dashboard');
+                        alert('Dados importados com sucesso!');
                     }
-                } catch (err) {
-                    alert('Erro ao carregar o ficheiro JSON.');
+                } catch (error) {
+                    alert('Erro ao importar ficheiro.');
                 }
             };
             reader.readAsText(file);
         }
 
         function resetData() {
-            if (confirm('Eliminar permanentemente todos os dados?')) {
+            if (confirm('Tem a certeza? Esta ação é irreversível!')) {
+                signals = [];
+                config = { initialBankroll: 1000, defaultStake: 50 };
                 localStorage.removeItem(STORAGE_SIGNALS);
                 localStorage.removeItem(STORAGE_CONFIG);
-                location.reload();
+                loadData();
+                navigate('dashboard');
+                alert('Todos os dados foram eliminados.');
             }
         }
     </script>
